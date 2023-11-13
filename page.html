@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prio BioDiesel</title>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <style>
+       body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    height: 100vh;
+    width: 200px;
+    background-color: #00B4F6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.navbar img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Change the color when hovered */
+nav a:hover {
+    background-color: #007BB5;
+}
+
+/* Chart Container styling */
+#chartContainer {
+    margin-left: 220px; /* Adjust to accommodate the navbar width */
+    padding: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo2.png" alt="Logo"> 
+        <nav>
+            <ul>
+                <li><a href="#" onclick="lineChartClick()">Rene River</a></li>
+                <li><a href="#" onclick="showChart('bar')">Bar Chart</a></li>
+                <li><a href="#" onclick="showChart('pie')">Pie Chart</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
+    <div id="chartContainer" >
+        <label for="yearDropdown">Select year:</label>
+        <select id="yearDropdown">
+            <option value="Seasonal" selected>Seasonal</option>
+            <option value="2023" selected>2023</option>
+            <option value="2022" selected>2022</option>
+            <option value="2021" selected>2021</option>
+            <option value="2020" selected>2020</option>
+            <option value="2019" selected>2019</option>
+            <option value="2018" selected>2018</option>
+            <option value="2017" selected>2017</option>
+            <option value="2016" selected>2016</option>
+            <option value="2015" selected>2015</option>
+            <option value="2014" selected>2014</option>
+            <option value="2013" selected>2013</option>
+        </select>
+    </div>
+    <script src="main.js"></script>
+    <!-- <script src="sc.js"></script> -->
+
+</body>
+</html>
