@@ -1,3 +1,5 @@
+
+
 // Load data from CSV file
 d3.csv('finalData.csv').then(function(dataFull) {
     const parseDate = d3.timeParse("%d-%m-%Y");
