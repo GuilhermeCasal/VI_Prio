@@ -5,6 +5,13 @@ const barChart = document.getElementById('Difference');
         // Redirect to page.html
         window.location.href = 'page.html';
     });
+const pie = document.getElementById('Pie');
+
+// Add event listener for click on the bar chart
+pie.addEventListener('click', function() {
+    // Redirect to page.html
+    window.location.href = 'pie.html';
+});
 
 d3.csv('finalData.csv').then(function (dataFull) {
     const parseDate = d3.timeParse("%d-%m-%Y");

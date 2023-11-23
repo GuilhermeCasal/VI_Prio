@@ -12,6 +12,14 @@ const barChart = document.getElementById('Kaub');
         // Redirect to page.html
         window.location.href = 'gui_page.html';
     });
+
+    const pie = document.getElementById('Pie');
+
+    // Add event listener for click on the bar chart
+    pie.addEventListener('click', function() {
+        // Redirect to page.html
+        window.location.href = 'pie.html';
+    });
 // Read data from CSV file
 d3.csv("finalData.csv").then(function(data) {
     // Parse dates in the format "%d-%m-%Y"
@@ -156,8 +164,6 @@ function populate_dropdown3(){
         // columns = new Set()
         const columns = Object.keys(data[0])
         // columns.
-
-        dropdown.appendChild(def)
         columns.forEach(column => {
             const cnames = column.split(",")
             cnames.forEach(name =>{
