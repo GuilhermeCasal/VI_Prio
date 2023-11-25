@@ -8,6 +8,14 @@ const marginLeft = 0;
 let year1 = 2012
 let year2 = 2022
 
+const box = document.getElementById('Box');
+
+// Add event listener for click on the bar chart
+box.addEventListener('click', function() {
+    // Redirect to page.html
+    window.location.href = 'box.html';
+});
+
 const barChart = document.getElementById('Kaub');
 
     // Add event listener for click on the bar chart

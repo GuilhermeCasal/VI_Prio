@@ -13,6 +13,14 @@ pie.addEventListener('click', function() {
     window.location.href = 'pie.html';
 });
 
+const box = document.getElementById('Box');
+
+// Add event listener for click on the bar chart
+box.addEventListener('click', function() {
+    // Redirect to page.html
+    window.location.href = 'box.html';
+});
+
 d3.csv('finalData.csv').then(function (dataFull) {
     const parseDate = d3.timeParse("%d-%m-%Y");
     dataFull.forEach(function (d) {

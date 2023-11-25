@@ -5,6 +5,16 @@ const marginRight = 40;
 const marginBottom = 30;
 const marginLeft = 40;
 
+
+const box = document.getElementById('Box');
+
+// Add event listener for click on the bar chart
+box.addEventListener('click', function() {
+    // Redirect to page.html
+    window.location.href = 'box.html';
+});
+
+
 const barChart = document.getElementById('Kaub');
 
     // Add event listener for click on the bar chart
