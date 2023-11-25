@@ -7,42 +7,28 @@ const marginLeft = 40;
 
 
 const box = document.getElementById('Box');
-
-// Add event listener for click on the bar chart
 box.addEventListener('click', function() {
-    // Redirect to page.html
     window.location.href = 'box.html';
 });
 
-
 const barChart = document.getElementById('Kaub');
+barChart.addEventListener('click', function() {
+    window.location.href = 'gui_page.html';
+});
 
-    // Add event listener for click on the bar chart
-    barChart.addEventListener('click', function() {
-        // Redirect to page.html
-        window.location.href = 'gui_page.html';
-    });
+const pie = document.getElementById('Pie');
+pie.addEventListener('click', function() {
+    window.location.href = 'pie.html';
+});
 
-    const pie = document.getElementById('Pie');
-
-    // Add event listener for click on the bar chart
-    pie.addEventListener('click', function() {
-        // Redirect to page.html
-        window.location.href = 'pie.html';
-    });
-// Read data from CSV file
 d3.csv("finalData.csv").then(function(data) {
-    // Parse dates in the format "%d-%m-%Y"
     const parseDate = d3.timeParse("%d-%m-%Y");
 
-    // Convert string values to numbers for relevant columns
     data.forEach(function(d) {
-        d.Timestamp = parseDate(d.Timestamp); // Parse string to date
-        d['USED COOKING OIL(EUR/TON)'] = +d['USED COOKING OIL(EUR/TON)']; // Convert to number
-        d['RAPESEED(EUR/TON)'] = +d['RAPESEED(EUR/TON)']; // Convert to number
+        d.Timestamp = parseDate(d.Timestamp); 
+        d['USED COOKING OIL(EUR/TON)'] = +d['USED COOKING OIL(EUR/TON)'];
+        d['RAPESEED(EUR/TON)'] = +d['RAPESEED(EUR/TON)'];
     });
-
-    // Calculate the difference between two columns and create new data array
     const newData = data.filter(d => !isNaN(d['USED COOKING OIL(EUR/TON)']) && !isNaN(d['RAPESEED(EUR/TON)']) && d['RAPESEED(EUR/TON)'] != 0 && d['USED COOKING OIL(EUR/TON)'] != 0).map(function(d) {
         return {
             Timestamp: d.Timestamp,
@@ -50,13 +36,11 @@ d3.csv("finalData.csv").then(function(data) {
         };
     });
 
-    // Create SVG element
     const svg = d3.select("#chartContainer")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    // Define scales for x and y axes
     const xScale = d3.scaleTime()
         .domain(d3.extent(data, d => d.Timestamp))
         .range([marginLeft+10, width - marginRight]);
@@ -65,12 +49,10 @@ d3.csv("finalData.csv").then(function(data) {
         .domain(d3.extent(newData, d => d.Difference))
         .range([height - marginBottom, marginTop]);
 
-    // Define line function
     const line = d3.line()
         .x(d => xScale(d.Timestamp))
         .y(d => yScale(d.Difference));
 
-    // Append line to SVG
     svg.append("path")
         .datum(newData)
         .attr("fill", "none")
@@ -78,23 +60,19 @@ d3.csv("finalData.csv").then(function(data) {
         .attr("stroke-width", 2)
         .attr("d", line);
 
-    // Append x-axis
     svg.append("g")
         .attr("transform", `translate(0, ${height - marginBottom})`)
         .call(d3.axisBottom(xScale));
 
-    // Append y-axis
     svg.append("g")
         .attr("transform", `translate(${marginLeft+10}, 0)`)
         .call(d3.axisLeft(yScale));
 
-    // Append x-axis label
     svg.append("text")
     .attr("transform", `translate(${width / 2},${height + 0})`)
     .style("text-anchor", "middle")
     .text("YEAR");
 
-    // Append y-axis label
     svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0)
@@ -111,15 +89,13 @@ function populate_dropdown(){
         return null
     }
     d3.csv("finalData.csv").then(function(data) {
-        // Parse dates in the format "%d-%m-%Y"
         const parseDate = d3.timeParse("%d-%m-%Y");
     
-        // Convert string values to numbers for relevant columns
         years = new Set()
         data.forEach(function(d) {
-            const timestamp = parseDate(d.Timestamp); // Parse string to date
-    const year = timestamp.getFullYear(); // Extract the year from the date object
-    years.add(year); 
+            const timestamp = parseDate(d.Timestamp);
+            const year = timestamp.getFullYear();  
+            years.add(year); 
         });
         years.forEach(year => {
             if(year != 2023 && year != 2011){
@@ -140,14 +116,11 @@ function populate_dropdown2(){
         return null
     }
     d3.csv("finalData.csv").then(function(data) {
-        // Parse dates in the format "%d-%m-%Y"
         const parseDate = d3.timeParse("%d-%m-%Y");
-    
-        // Convert string values to numbers for relevant columns
         years = new Set()
         data.forEach(function(d) {
-            const timestamp = parseDate(d.Timestamp); // Parse string to date
-    const year = timestamp.getFullYear(); // Extract the year from the date object
+            const timestamp = parseDate(d.Timestamp); 
+    const year = timestamp.getFullYear();
     years.add(year); 
         });
         years.forEach(year => {
@@ -170,10 +143,7 @@ function populate_dropdown3(){
     }
     
     d3.csv("finalData.csv").then(function(data) {    
-        // Convert string values to numbers for relevant columns
-        // columns = new Set()
         const columns = Object.keys(data[0])
-        // columns.
         columns.forEach(column => {
             const cnames = column.split(",")
             cnames.forEach(name =>{
@@ -198,10 +168,7 @@ function populate_dropdown4(){
         return null
     }
     d3.csv("finalData.csv").then(function(data) {    
-        // Convert string values to numbers for relevant columns
-        // columns = new Set()
         const columns = Object.keys(data[0])
-        // columns.
         columns.forEach(column => {
             const cnames = column.split(",")
             cnames.forEach(name =>{
@@ -245,17 +212,13 @@ function updateChart(){
         d3.select("#chartContainer").select("svg").remove();
     }
     d3.csv("finalData.csv").then(function(data) {
-        // Parse dates in the format "%d-%m-%Y"
         const parseDate = d3.timeParse("%d-%m-%Y");
-  
-        // Convert string values to numbers for relevant columns
-        data.forEach(function(d) {
-            d.Timestamp = parseDate(d.Timestamp); // Parse string to date
-            d[item1] = +d[item1]; // Convert to number
-            d[item2] = +d[item2]; // Convert to number
+          data.forEach(function(d) {
+            d.Timestamp = parseDate(d.Timestamp); 
+            d[item1] = +d[item1]; 
+            d[item2] = +d[item2]; 
         });
     
-        // Calculate the difference between two columns and create new data array
         const newData = data.filter(d => !isNaN(d[item1]) && !isNaN(d[item2]) && d[item2] != 0 && d[item1] != 0 && ( d.Timestamp.getFullYear() >= a && d.Timestamp.getFullYear() <= b)).map(function(d) {
             return {
                 Timestamp: d.Timestamp,
@@ -263,13 +226,11 @@ function updateChart(){
             };
         });
     
-        // Create SVG element
         const svg = d3.select("#chartContainer")
             .append("svg")
             .attr("width", width)
             .attr("height", height);
     
-        // Define scales for x and y axes
         const xScale = d3.scaleTime()
             .domain([new Date(a, 0), new Date(b, 0)])
             .range([marginLeft+10, width - marginRight]);
@@ -278,12 +239,10 @@ function updateChart(){
             .domain(d3.extent(newData, d => d.Difference))
             .range([height - marginBottom, marginTop]);
     
-        // Define line function
         const line = d3.line()
             .x(d => xScale(d.Timestamp))
             .y(d => yScale(d.Difference));
     
-        // Append line to SVG
         svg.append("path")
             .datum(newData)
             .attr("fill", "none")
@@ -291,23 +250,19 @@ function updateChart(){
             .attr("stroke-width", 2)
             .attr("d", line);
     
-        // Append x-axis
         svg.append("g")
             .attr("transform", `translate(0, ${height - marginBottom})`)
             .call(d3.axisBottom(xScale));
     
-        // Append y-axis
         svg.append("g")
             .attr("transform", `translate(${marginLeft+10}, 0)`)
             .call(d3.axisLeft(yScale));
     
-        // Append x-axis label
         svg.append("text")
         .attr("transform", `translate(${width / 2},${height + 0})`)
         .style("text-anchor", "middle")
         .text("YEAR");
     
-        // Append y-axis label
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0)

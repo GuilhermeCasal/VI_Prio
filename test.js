@@ -1,25 +1,17 @@
-const barChart = document.getElementById('Difference');
-
-    // Add event listener for click on the bar chart
-    barChart.addEventListener('click', function() {
-        // Redirect to page.html
+const dif = document.getElementById('Difference');
+    dif.addEventListener('click', function() {
         window.location.href = 'page.html';
     });
 const pie = document.getElementById('Pie');
 
-// Add event listener for click on the bar chart
 pie.addEventListener('click', function() {
-    // Redirect to page.html
     window.location.href = 'pie.html';
 });
 
 const box = document.getElementById('Box');
-
-// Add event listener for click on the bar chart
-box.addEventListener('click', function() {
-    // Redirect to page.html
-    window.location.href = 'box.html';
-});
+    box.addEventListener('click', function() {
+        window.location.href = 'box.html';
+    });
 
 d3.csv('finalData.csv').then(function (dataFull) {
     const parseDate = d3.timeParse("%d-%m-%Y");
@@ -60,7 +52,6 @@ d3.csv('finalData.csv').then(function (dataFull) {
 
     document.getElementById('chartContainer').appendChild(svg.node());
 
-    // Define static colors for each year
     const yearColors = {
         2013: "magenta",
         2014: "pink",
@@ -85,7 +76,7 @@ d3.csv('finalData.csv').then(function (dataFull) {
     function updateChart() {
         svg.selectAll(".line").remove();
         svg.selectAll(".legend").remove(); 
-        svg.selectAll(".horizontal-line").remove(); // Remove existing horizontal lines
+        svg.selectAll(".horizontal-line").remove();
         const years = selectedOption === "Seasonal" ? [2019, 2020, 2021, 2022] : [+selectedOption];
 
         years.forEach(year => {
@@ -97,7 +88,7 @@ d3.csv('finalData.csv').then(function (dataFull) {
             svg.append("path")
                 .attr("class", "line")
                 .attr("fill", "none")
-                .attr("stroke", yearColors[year]) // Use static color for each year
+                .attr("stroke", yearColors[year])
                 .attr("stroke-width", 1.5)
                 .attr("d", line(updatedData));
         });
@@ -110,7 +101,7 @@ d3.csv('finalData.csv').then(function (dataFull) {
             .attr("y2", y(140))
             .attr("stroke", "yellow")
             .attr("stroke-width", 2)
-            .attr("stroke-dasharray", "4"); // Optional: dashed line
+            .attr("stroke-dasharray", "4");
 
         svg.append("line")
             .attr("class", "horizontal-line")
@@ -120,9 +111,7 @@ d3.csv('finalData.csv').then(function (dataFull) {
             .attr("y2", y(40))
             .attr("stroke", "red")
             .attr("stroke-width", 2)
-            .attr("stroke-dasharray", "4"); // Optional: dashed line
-
-
+            .attr("stroke-dasharray", "4"); 
 
         svg.select(".x-axis").call(d3.axisBottom(x).ticks(d3.timeMonth.every(1)).tickFormat(d3.timeFormat("%b")).tickSizeOuter(0));
         svg.select(".y-axis").call(d3.axisLeft(y).ticks(height / 40));
@@ -131,8 +120,6 @@ d3.csv('finalData.csv').then(function (dataFull) {
             const legendContainer = svg.append("g")
                 .attr("class", "legend")
                 .attr("transform", `translate(${width - marginRight - 200}, ${marginTop})`);  
-            // Create legend items
-
             const legendItems = Object.entries(yearColors)
                     .filter(([year]) => years.includes(+year));
 
@@ -155,8 +142,6 @@ d3.csv('finalData.csv').then(function (dataFull) {
                 .text(d => d[0])
                 .attr("fill", "black");
         }
-    
     }
-
     updateChart();
 });
