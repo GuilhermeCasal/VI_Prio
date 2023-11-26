@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Web Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prio BioDiesel</title>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <style>
+       body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    height: 100vh;
+    width: 200px;
+    background-color: #00B4F6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.navbar img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Change the color when hovered */
+nav a:hover {
+    background-color: #007BB5;
+}
+
+.main-content {
+            margin-left: 220px; /* Account for the navbar width */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 2em;
+        }
+
+        .main-content h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .main-content p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo2.png" alt="Logo"> 
+        <nav>
+            <ul>
+                <li><a href="#" id="Kaub">Rene River</a></li>
+                <li><a href="#" id="Difference">Product Difference Chart</a></li>
+                <li><a href="#" id="Pie">Pie Chart</a></li>
+                <li><a href="#" id="Box">Box Plot</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <h1>Introduction</h1>
+        <p>The following report approaches a proposed visualization solution for large amounts of data regarding the evolution of metrics related to fuel prices.</p>
+        <p>This work has been done with the knowledge acquired during the semestral subject of Information Visualization and makes use of data provided by Prio displayed using graphs and plots developed with the use of D3.js.</p>
+        <p>There are 5 implemented visualizations:</p>
+        <h2>1. Rene River</h2>
+        <p>This is a line chart that allows to simultaneously view the variotions in tides of the Rene river through the last 5 years. Also, users can choose a specific year to view the information</p>
+        <h2>2. Product Difference Chart</h2>
+        <p>In this chart, users can select a specific time frame and a pair of products to be provided with a line chart of the difference in price between these to products accross the set time</p>
+        <h2>3. Pie Chart</h2>
+        <p>The purpose of this visualization is to allow analysts to easily understand how each product impacted the total expense of a certain time frame</p>
+        <h2>4. Box Plot</h2>
+        <p>With this box plot, users can extract a lot of valueble information about the price fluctuation of each product during the personalized time frame</p>
+    </div>
+
+    <script src="intro.js"></script>
+</body>
+</html>

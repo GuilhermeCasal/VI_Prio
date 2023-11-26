@@ -11,6 +11,11 @@ box.addEventListener('click', function() {
     window.location.href = 'box.html';
 });
 
+const main = document.getElementById('Main');
+    main.addEventListener('click', function() {
+        window.location.href = 'intro.html';
+    });
+
 const barChart = document.getElementById('Kaub');
 barChart.addEventListener('click', function() {
     window.location.href = 'gui_page.html';

@@ -2,11 +2,11 @@ const dif = document.getElementById('Difference');
     dif.addEventListener('click', function() {
         window.location.href = 'page.html';
     });
-const pie = document.getElementById('Pie');
 
+const pie = document.getElementById('Pie');
 pie.addEventListener('click', function() {
     window.location.href = 'pie.html';
-});
+    });
 
 const box = document.getElementById('Box');
     box.addEventListener('click', function() {
@@ -18,6 +18,11 @@ d3.csv('finalData.csv').then(function (dataFull) {
     dataFull.forEach(function (d) {
         d.Timestamp = parseDate(d.Timestamp);
         d['NIVEIS AGUA DO RIO RENO EM KAUB(CENT)'] = +d['NIVEIS AGUA DO RIO RENO EM KAUB(CENT)'];
+    });
+
+const main = document.getElementById('Main');
+    main.addEventListener('click', function() {
+        window.location.href = 'intro.html';
     });
 
     let selectedOption = "Seasonal";

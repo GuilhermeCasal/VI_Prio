@@ -7,6 +7,11 @@ pie.addEventListener('click', function() {
     window.location.href = 'pie.html';
 });
 
+const main = document.getElementById('Main');
+    main.addEventListener('click', function() {
+        window.location.href = 'intro.html';
+    });
+
 const river = document.getElementById('Kaub');
 river.addEventListener('click', function() {
     window.location.href = 'gui_page.html';

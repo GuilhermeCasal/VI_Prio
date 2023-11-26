@@ -8,6 +8,11 @@ const marginLeft = 0;
 let year1 = 2012
 let year2 = 2022
 
+const main = document.getElementById('Main');
+    main.addEventListener('click', function() {
+        window.location.href = 'intro.html';
+    });
+
 const box = document.getElementById('Box');
 box.addEventListener('click', function() {
     window.location.href = 'box.html';
