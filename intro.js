@@ -22,3 +22,8 @@ const tank = document.getElementById('Tank');
 tank.addEventListener('click', function(){
     window.location.href = 'bar.html';
 });
+
+const gasolina = document.getElementById('Gasolina');
+    gasolina.addEventListener('click', function() {
+        window.location.href = 'bar2.html';
+});

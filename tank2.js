@@ -1,6 +1,6 @@
 var svgWidth = 1200;
 var svgHeight = 400;
-var margin = { top: 20, right: 20, bottom: 50, left: 400 };
+var margin = { top: 20, right: 20, bottom: 50, left: 300 };
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
@@ -72,7 +72,7 @@ var svg = d3.select("#chart-container").append("svg")
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left)
+            .attr("y", 0 - margin.left + 230)
             .attr("x", 0 - (height / 2))
             .attr("dy", "1em")
             .style("text-anchor", "middle")

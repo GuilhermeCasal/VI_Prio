@@ -7,6 +7,11 @@ pie.addEventListener('click', function() {
     window.location.href = 'pie.html';
 });
 
+const gasolina = document.getElementById('Gasolina');
+    gasolina.addEventListener('click', function() {
+        window.location.href = 'bar2.html';
+});
+
 const main = document.getElementById('Main');
     main.addEventListener('click', function() {
         window.location.href = 'intro.html';
