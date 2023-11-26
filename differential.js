@@ -26,6 +26,11 @@ pie.addEventListener('click', function() {
     window.location.href = 'pie.html';
 });
 
+const tank = document.getElementById('Tank');
+tank.addEventListener('click', function(){
+    window.location.href = 'bar.html';
+});
+
 d3.csv("finalData.csv").then(function(data) {
     const parseDate = d3.timeParse("%d-%m-%Y");
 

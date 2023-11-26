@@ -13,6 +13,12 @@ const box = document.getElementById('Box');
         window.location.href = 'box.html';
     });
 
+const tank = document.getElementById('Tank');
+    tank.addEventListener('click', function(){
+        window.location.href = 'bar.html';
+    });
+    
+
 d3.csv('finalData.csv').then(function (dataFull) {
     const parseDate = d3.timeParse("%d-%m-%Y");
     dataFull.forEach(function (d) {

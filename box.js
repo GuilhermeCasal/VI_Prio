@@ -21,6 +21,11 @@ const line = document.getElementById('Difference');
   line.addEventListener('click', function() {
       window.location.href = 'page.html';
 });
+const tank = document.getElementById('Tank');
+  tank.addEventListener('click', function(){
+    window.location.href = 'bar.html';
+});
+
 
 d3.csv("finalData.csv").then(function(data) {
 

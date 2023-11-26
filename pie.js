@@ -14,8 +14,8 @@ const main = document.getElementById('Main');
     });
 
 const box = document.getElementById('Box');
-box.addEventListener('click', function() {
-    window.location.href = 'box.html';
+    box.addEventListener('click', function() {
+        window.location.href = 'box.html';
 });
 
 const river = document.getElementById('Kaub');
@@ -27,6 +27,12 @@ const line = document.getElementById('Difference');
     line.addEventListener('click', function() {
         window.location.href = 'page.html';
     });
+
+const tank = document.getElementById('Tank');
+    tank.addEventListener('click', function(){
+        window.location.href = 'bar.html';
+    });
+    
 
 d3.csv("finalData.csv").then(function(data) {
     const filteredData = data.filter(d => {

@@ -18,3 +18,7 @@ const box = document.getElementById('Box');
 box.addEventListener('click', function() {
     window.location.href = 'box.html';
 });
+const tank = document.getElementById('Tank');
+tank.addEventListener('click', function(){
+    window.location.href = 'bar.html';
+});

@@ -17,11 +17,11 @@ var svg = d3.select("#chart-container").append("svg")
 
     data.forEach(function (d) {
         d.Timestamp = parseDate(d.Timestamp);
-        d["STOCKS GASOLEO(TON)"] = +d["STOCKS GASOLEO(TON)"];
+        d["STOCKS GASOLINA(TON)"] = +d["STOCKS GASOLINA(TON)"];
     });
 
     data = data.filter(function(d) {
-        return !isNaN(d["STOCKS GASOLEO(TON)"]);
+        return !isNaN(d["STOCKS GASOLINA(TON)"]);
     });
     var years = Array.from(new Set(data.map(d => new Date(d.Timestamp).getFullYear())));
 
@@ -55,8 +55,8 @@ var svg = d3.select("#chart-container").append("svg")
             .style("fill", "steelblue")
             .attr("x", d => xScale(new Date(d.Timestamp)))
             .attr("width", width / filteredData.length)
-            .attr("y", d => yScale(d["STOCKS GASOLEO(TON)"]))
-            .attr("height", d => height - yScale(d["STOCKS GASOLEO(TON)"]));
+            .attr("y", d => yScale(d["STOCKS GASOLINA(TON)"]))
+            .attr("height", d => height - yScale(d["STOCKS GASOLINA(TON)"]));
 
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
@@ -76,7 +76,7 @@ var svg = d3.select("#chart-container").append("svg")
             .attr("x", 0 - (height / 2))
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("STOCKS GASOLEO(TON)");
+            .text("STOCKS GASOLINA(TON)");
     }
 });
 
@@ -96,15 +96,16 @@ const line = document.getElementById('Difference');
 });
 
 const barChart = document.getElementById('Kaub');
-    barChart.addEventListener('click', function() {
-        window.location.href = 'gui_page.html';
+barChart.addEventListener('click', function() {
+    window.location.href = 'gui_page.html';
 });
 
 const pie = document.getElementById('Pie');
-    pie.addEventListener('click', function() {
-        window.location.href = 'pie.html';
+pie.addEventListener('click', function() {
+    window.location.href = 'pie.html';
 });
-const gasolina = document.getElementById('Gasolina');
-    gasolina.addEventListener('click', function() {
-        window.location.href = 'bar2.html';
+
+const tank = document.getElementById('Tank');
+tank.addEventListener('click', function() {
+    window.location.href = 'bar.html';
 });
