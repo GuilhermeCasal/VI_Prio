@@ -58,6 +58,26 @@ nav a:hover {
     padding: 20px;
 }
 
+.main-content {
+            margin-left: 220px; /* Account for the navbar width */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 2em;
+        }
+
+        .main-content h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .main-content p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -75,9 +95,13 @@ nav a:hover {
         </nav>
     </div>
 
+    <div class="main-content">
+        <h1>Gasoline stock level</h1>
+    </div>
+
     <label style="margin-left: 40%;" for="yearSelect">Choose a year:</label>
     <select id="yearSelect"></select>
-
+    
     <div id="chart-container"></div>
 
     <!-- <script src="main.js"></script> -->
